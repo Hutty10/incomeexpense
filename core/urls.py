@@ -7,4 +7,5 @@ from rest_framework.authentication import SessionAuthentication, BasicAuthentica
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/", include("user.urls", namespace="user")),
+    path("income/", include("income.urls", namespace="income")),
 ]

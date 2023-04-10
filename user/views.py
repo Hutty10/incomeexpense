@@ -7,8 +7,8 @@ from django.contrib.auth.tokens import PasswordResetTokenGenerator
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponsePermanentRedirect
 from django.urls import reverse, reverse_lazy
-from django.utils.encoding import smart_str, DjangoUnicodeDecodeError
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import DjangoUnicodeDecodeError, smart_str
+from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from rest_framework import generics, status
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
@@ -16,14 +16,10 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from user.models import User
-from user.serializers import (
-    EmailVerificationSerializer,
-    LoginSerializer,
-    LogoutSerializer,
-    RegisterSerializer,
-    ResetPasswordEmailRequestSerializer,
-    SetNewPasswordSerializer,
-)
+from user.serializers import (EmailVerificationSerializer, LoginSerializer,
+                              LogoutSerializer, RegisterSerializer,
+                              ResetPasswordEmailRequestSerializer,
+                              SetNewPasswordSerializer)
 
 from .utils import Utils
 
