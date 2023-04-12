@@ -1,4 +1,3 @@
-from django.test import override_settings
 from django.urls import reverse
 from faker import Faker
 from rest_framework.test import APITestCase
@@ -7,7 +6,6 @@ from user.models import User
 
 
 class TestSetUp(APITestCase):
-    # @override_settings(EMAIL_BACKEND="django.core.mail.backends.smtp.EmailBackend")
     def setUp(self) -> None:
         self.register_url = reverse("user:register")
         self.login_url = reverse("user:login")
